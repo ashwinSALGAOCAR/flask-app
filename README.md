@@ -1,1 +1,1 @@
-# flask-app
+flask-app to learn the structure of an app server.
