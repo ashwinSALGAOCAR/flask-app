@@ -17,4 +17,4 @@ class Config(object):
     ADMINS =['sudomusketeer@gmail.com']
 
     POSTS_PER_PAGE = 25
-    LANGUAGES = ['en-US', 'en-GB', 'en-CA', 'es']
+    LANGUAGES = ['en', 'es']
