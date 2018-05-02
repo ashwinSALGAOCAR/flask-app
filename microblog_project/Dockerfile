@@ -1,8 +1,8 @@
 FROM python:3.6-alpine
 
-RUN adduser -D ashwin
+RUN adduser -D username
 
-WORKDIR /home/ashwin
+WORKDIR /home/username
 
 COPY flask_app-req.txt requirements.txt
 RUN python -m venv venv
@@ -16,8 +16,8 @@ RUN chmod +x boot.sh
 
 ENV FLASK_APP microblog.py
 
-RUN chown -R ashwin:ashwin ./
-USER ashwin
+RUN chown -R username:username ./
+USER username
 
 EXPOSE 5000
 ENTRYPOINT ["./boot.sh"]
