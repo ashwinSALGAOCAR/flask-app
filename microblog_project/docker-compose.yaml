@@ -1,0 +1,36 @@
+version: '3.3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+  db:
+    image: mysql/mysql-server:5.7
+    depends_on:
+      - elasticsearch
+    environment:
+      MYSQL_DATABASE: starkamaniac
+      MYSQL_USER: ashwin
+      MYSQL_PASSWORD: welcome
+  starkamaniac:
+    depends_on:
+      - db
+    image: starkamaniac:latest
+    ports:
+      - "8000:5000"
+    environment:
+      - SECRET_KEY=firstappandithasbeenamazing
+      - MAIL_SERVER=smtp.googlemail.com
+      - MAIL_PORT=587
+      - MAIL_USE_TLS=true
+      - MAIL_USERNAME=sudomusketeer@gmail.com
+      - MAIL_PASSWORD=WElcome@1122
+      - MS_TRANSLATOR_KEY=31525bf21f6b497da7b08050e352d072
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - DATABASE_URL=mysql+pymysql://ashwin:welcome@dbserver/starkamaniac
+    links:
+      - elasticsearch:elasticsearch
+      - db:dbserver

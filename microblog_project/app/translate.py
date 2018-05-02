@@ -10,7 +10,7 @@ def translate(text, source_language, dest_language):
     auth = {'Ocp-Apim-Subscription-Key': current_app.config['MS_TRANSLATOR_KEY']}
     r = requests.get('https://api.microsofttranslator.com/v2/Ajax.svc'
                      '/Translate?text={}&from={}&to={}'.format(
-                         text.encode('utf-8-sig'), source_language, dest_language),
+                         text, source_language, dest_language),
                      headers=auth)
     if r.status_code != 200:
         return _('Error: The translation service failed.')
