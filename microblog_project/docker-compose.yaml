@@ -30,7 +30,7 @@ services:
       - MAIL_PASSWORD=<pwd>
       - MS_TRANSLATOR_KEY=<api_key>
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - DATABASE_URL=mysql+pymysql://username:yourpassword@dbserver/starkamaniacdatabase_name
+      - DATABASE_URL=mysql+pymysql://username:yourpassword@dbserver/database_name
     links:
       - elasticsearch:elasticsearch
       - db:dbserver
